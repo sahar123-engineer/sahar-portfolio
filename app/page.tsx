@@ -46,23 +46,21 @@ const PORTFOLIO_DATA = {
     title: "Software Engineer | Full-Stack Developer | AI & GenAI Enthusiast",
     shortBio: "Recently graduated Software Engineer from ISIMS Sfax with hands-on expertise in .NET, Angular, Spring Boot, RAG Systems, and Enterprise Architecture.",
     location: "Tunisia / Available for Remote & Onsite Opportunities",
-    email: "sahar.kharrat.dev@gmail.com",
-    github: "https://github.com/saharkharrat",
-    linkedin: "https://linkedin.com/in/saharkharrat",
+    email: "saharkharrat15@gmail.com",
+    github: "https://github.com/sahar123-engineer",
+    linkedin: "https://www.linkedin.com/in/sahar-kharrat-/",
     education: {
-      degree: "National Engineering Diploma in Computer Science / Software Engineering",
+      degree: "National Engineering Degree in Software Engineering",
       institution: "ISIMS – Institut Supérieur d’Informatique et de Multimédia de Sfax",
       university: "Université de Sfax",
       period: "2021 – 2024",
-      status: "Graduated with Distinction"
+      status: "Graduated with High Honors"
     }
   },
   skills: [
     { name: "Angular", category: "Frontend", level: "Advanced", icon: "Code" },
     { name: "React.js", category: "Frontend", level: "Advanced", icon: "Code" },
     { name: "TypeScript / JS", category: "Frontend", level: "Advanced", icon: "Code" },
-    { name: "Tailwind CSS", category: "Frontend", level: "Advanced", icon: "Code" },
-    { name: "HTML5 / CSS3", category: "Frontend", level: "Expert", icon: "Code" },
     
     { name: "ASP.NET Core / .NET 8", category: "Backend", level: "Advanced", icon: "Server" },
     { name: "Spring Boot", category: "Backend", level: "Intermediate", icon: "Server" },
@@ -74,18 +72,11 @@ const PORTFOLIO_DATA = {
     { name: "Generative AI & LLMs", category: "AI & GenAI", level: "Advanced", icon: "Brain" },
     { name: "RAG Systems", category: "AI & GenAI", level: "Advanced", icon: "Brain" },
     { name: "LlamaIndex", category: "AI & GenAI", level: "Advanced", icon: "Brain" },
-    { name: "Vector DBs (Qdrant/FAISS)", category: "AI & GenAI", level: "Intermediate", icon: "Brain" },
-    { name: "Speech AI & NLP", category: "AI & GenAI", level: "Intermediate", icon: "Brain" },
 
     { name: "SQL Server / EF Core", category: "Databases", level: "Advanced", icon: "Database" },
     { name: "PostgreSQL / MySQL", category: "Databases", level: "Advanced", icon: "Database" },
-    { name: "MongoDB", category: "Databases", level: "Intermediate", icon: "Database" },
-    { name: "Redis Caching", category: "Databases", level: "Intermediate", icon: "Database" },
 
-    { name: "Clean Architecture & CQRS", category: "Architecture", level: "Advanced", icon: "Layers" },
-    { name: "Microservices & Ocelot Gateway", category: "Architecture", level: "Intermediate", icon: "Layers" },
     { name: "Git & Azure DevOps", category: "DevOps & Tools", level: "Advanced", icon: "Settings" },
-    { name: "Docker", category: "DevOps & Tools", level: "Intermediate", icon: "Settings" },
     { name: "Postman & CI/CD", category: "DevOps & Tools", level: "Advanced", icon: "Settings" }
   ],
   experience: [
@@ -93,7 +84,7 @@ const PORTFOLIO_DATA = {
       company: "TSI – Tunisie Systèmes d’Information",
       role: "Software Engineering Intern / Final-Year Project",
       type: "End-of-Studies Internship",
-      period: "Feb 2024 – Jul 2024",
+      period: "Feb 2026 – Jul 2026",
       location: "Sfax, Tunisia",
       summary: "Designed and implemented a full-scale HR Management module integrated into an enterprise-grade ERP platform using Clean Architecture and CQRS pattern.",
       highlights: [
@@ -104,26 +95,12 @@ const PORTFOLIO_DATA = {
         "Created interactive Business Intelligence HR Analytics dashboards for automated reporting."
       ],
       tech: [".NET 8", "ASP.NET Core", "Angular", "EF Core", "SQL Server", "Redis", "Ocelot Gateway", "CQRS", "Clean Architecture", "Azure DevOps"]
-    },
-    {
-      company: "SoftSys Internationale",
-      role: "AI Developer Intern",
-      type: "Internship",
-      period: "Summer 2023",
-      location: "Tunisia",
-      summary: "Created 'StériBot', an intelligent conversational RAG AI assistant specifically designed for an ERP medical sterilization module.",
-      highlights: [
-        "Built a Retrieval-Augmented Generation (RAG) pipeline leveraging LlamaIndex and VectorStoreIndex to index complex ERP documentation.",
-        "Integrated FastAPI backend with Google Speech-to-Text and Text-to-Speech engines for seamless voice interface.",
-        "Reduced query resolution time for medical personnel by 65% through context-aware document fetching."
-      ],
-      tech: ["Python", "LlamaIndex", "RAG", "VectorStoreIndex", "FastAPI", "Google Speech AI", "NLP"]
-    },
+    }, 
     {
       company: "SoftSys Internationale",
       role: "Mobile Developer",
       type: "Part-time",
-      period: "2023",
+      period: "Aout 2025 – Jan 2026",
       location: "Tunisia",
       summary: "Developed a cross-platform mobile app for real-time tracking and management of hospitalized patient records.",
       highlights: [
@@ -132,6 +109,20 @@ const PORTFOLIO_DATA = {
         "Implemented offline-first sync capability for reliable ward record updates."
       ],
       tech: ["Flutter", "Dart", "Flask", "Python", "REST API", "JSON"]
+    },
+    {
+      company: "SoftSys Internationale",
+      role: "AI Developer Intern",
+      type: "Internship",
+      period: "Jun 2025 – Jul 2025",
+      location: "Tunisia",
+      summary: "Created 'StériBot', an intelligent conversational RAG AI assistant specifically designed for an ERP medical sterilization module.",
+      highlights: [
+        "Built a Retrieval-Augmented Generation (RAG) pipeline leveraging LlamaIndex and VectorStoreIndex to index complex ERP documentation.",
+        "Integrated FastAPI backend with Google Speech-to-Text and Text-to-Speech engines for seamless voice interface.",
+        "Reduced query resolution time for medical personnel by 65% through context-aware document fetching."
+      ],
+      tech: ["Python", "LlamaIndex", "RAG", "VectorStoreIndex", "FastAPI", "Google Speech AI", "NLP"]
     }
   ],
   projects: [
@@ -169,23 +160,7 @@ const PORTFOLIO_DATA = {
       demo: "#",
       highlightBadge: "RAG & LLM"
     },
-    {
-      id: "supplier-portal",
-      title: "Next.js B2B Supplier Portal",
-      category: "Full-Stack",
-      tagline: "Modern supplier management portal with automated workflow notifications",
-      description: "A web platform for automated vendor onboarding, purchase order tracking, document verification, and invoice status visibility.",
-      features: [
-        "Server-side rendering & optimistic UI updates using Next.js App Router",
-        "Database modeling with Prisma ORM and PostgreSQL",
-        "Automated vendor notification triggers and file uploads",
-        "Responsive dark/light UI with Tailwind CSS"
-      ],
-      tech: ["Next.js", "TypeScript", "Tailwind CSS", "Prisma", "PostgreSQL", "Neon"],
-      github: "https://github.com/saharkharrat",
-      demo: "#",
-      highlightBadge: "Production Ready"
-    },
+
     {
       id: "hospital-app",
       title: "Hospitalized Patient Management",
@@ -201,22 +176,6 @@ const PORTFOLIO_DATA = {
       github: "https://github.com/saharkharrat",
       demo: "#",
       highlightBadge: "Healthcare Mobile"
-    },
-    {
-      id: "bi-dashboard",
-      title: "BI HR Analytics Dashboard",
-      category: "Analytics",
-      tagline: "Interactive executive dash for headcount metrics & training analytics",
-      description: "Business Intelligence suite aggregating operational HR data into actionable executive visualizations, turnover rates, and skill gap matrices.",
-      features: [
-        "ETL pipeline extracting data from relational database tables",
-        "Custom metrics calculation (Attrition, Cost per hire, Training ROI)",
-        "Exportable PDF/Excel executive reports"
-      ],
-      tech: ["Power BI", "SQL Server", "Data Modeling", "ETL", "Analytics"],
-      github: "https://github.com/saharkharrat",
-      demo: "#",
-      highlightBadge: "Data Analytics"
     }
   ],
   certifications: [
@@ -588,7 +547,7 @@ export default function App() {
 
               <div className="flex items-center gap-4 text-slate-400 font-mono text-xs">
                 <span className="flex items-center gap-1.5">
-                  <Code className="w-3.5 h-3.5 text-violet-400" /> ISIMS Engineering Graduate
+                  <Code className="w-3.5 h-3.5 text-violet-400" /> Software Engineering Graduate
                 </span>
                 <span className="flex items-center gap-1.5">
                   <Brain className="w-3.5 h-3.5 text-cyan-400" /> GenAI / RAG Specialist
