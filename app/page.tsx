@@ -21,8 +21,6 @@ import {
   Briefcase,
   User,
   Send,
-  Moon,
-  Sun,
   Menu,
   X,
   CheckCircle2,
@@ -197,7 +195,6 @@ const PORTFOLIO_DATA = {
 };
 
 export default function App() {
-  const darkMode = true;
   const [activeSection, setActiveSection] = useState('hero');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
