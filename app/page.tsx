@@ -21,6 +21,8 @@ import {
   Briefcase,
   User,
   Send,
+  Moon,
+  Sun,
   Menu,
   X,
   CheckCircle2,
@@ -194,12 +196,9 @@ const PORTFOLIO_DATA = {
   ]
 };
 
-const FR_TRANSLATIONS: Record<string, string> = {"Home":"Accueil","About":"À propos","AI Architecture":"Architecture IA","Skills":"Compétences","Experience":"Expérience","Projects":"Projets","Contact":"Contact","Resume":"CV","View Resume":"Voir le CV","{tx('Credentials')}":"Certifications","Certifications & Accolades":"Certifications & distinctions","{tx('Get In Touch')}":"Me contacter","{tx("Let's Discuss Opportunities")}":"Discutons des opportunités","{tx('Contact Details')}":"Coordonnées","{tx('Email Address')}":"Adresse e-mail","{tx('LinkedIn Profile')}":"Profil LinkedIn","{tx('GitHub Profile')}":"Profil GitHub","{tx('Send Message')}":"Envoyer un message","{tx('Your Name')}":"Votre nom","Subject":"Objet","Message":"Message","Send Inquiry":"Envoyer","Close":"Fermer","View Details":"Voir les détails","GitHub Repo":"Dépôt GitHub","Key Features:":"Fonctionnalités clés :","Technologies Used:":"Technologies utilisées :","All":"Tous","Frontend":"Frontend","Backend":"Backend","AI & GenAI":"IA & GenAI","Databases":"Bases de données","DevOps & Tools":"DevOps & outils","Full-Stack":"Full-Stack","Mobile":"Mobile","Analytics":"Analytique","Education":"Formation","{tx('Key Experience')}":"Expérience principale","{tx('Core Tech Stack')}":"Technologies principales","{tx('Download PDF')}":"Télécharger le PDF","{tx('Resume Preview')}":"Aperçu du CV","Recruiter Friendly Guarantee":"Profil adapté aux recruteurs","Ready for instant export or PDF save":"Prêt à être exporté ou enregistré en PDF","Tunisia":"Tunisie","Sfax, Tunisia":"Sfax, Tunisie","Graduated with High Honors":"Diplômée avec mention très bien","Software Engineer | Full-Stack Developer | AI & GenAI Enthusiast":"Ingénieure Logiciel | Développeuse Full-Stack | Passionnée d’IA & GenAI","Recently graduated Software Engineer from ISIMS Sfax with hands-on expertise in .NET, Angular, Spring Boot, RAG Systems, and Enterprise Architecture.":"Ingénieure en Génie Logiciel récemment diplômée de l’ISIMS de Sfax, avec une expérience pratique en .NET, Angular, Spring Boot, systèmes RAG et architecture d’entreprise.","Tunisia / Available for Remote & Onsite Opportunities":"Tunisie / Disponible pour des opportunités à distance et sur site","National Engineering Degree in Software Engineering":"Diplôme National d’Ingénieur en Génie Logiciel","Software Engineering Intern / Final-Year Project":"Stagiaire Ingénieure Logiciel / Projet de fin d’études","End-of-Studies Internship":"Stage de fin d’études","Mobile Developer":"Développeuse Mobile","Part-time":"Temps partiel","AI Developer Intern":"Stagiaire Développeuse IA","Internship":"Stage","Enterprise HR ERP Module":"Module ERP de gestion des ressources humaines","StériBot – Medical ERP AI Assistant":"StériBot – Assistant IA pour ERP médical","Hospitalized Patient Management":"Gestion des patients hospitalisés","A comprehensive enterprise Human Resources platform supporting recruitment pipelines, skill evaluations, leaves, training management, and business intelligence analytics.":"Plateforme RH d’entreprise couvrant le recrutement, l’évaluation des compétences, les congés, la formation et les tableaux de bord BI.","Voice-enabled RAG Chatbot powered by LlamaIndex and FastAPI":"Chatbot RAG vocal basé sur LlamaIndex et FastAPI","Flutter & Flask mobile application for ward health staff":"Application mobile Flutter & Flask pour le personnel de santé","Healthcare Mobile":"Application mobile médicale","ERP Architecture":"Architecture ERP","RAG & LLM":"RAG & LLM","Currently open for Junior Software Engineer, Full-Stack Developer, or AI/GenAI roles. Send me a message or connect directly!":"Actuellement ouverte aux opportunités de Software Engineer Junior, Full-Stack ou IA/GenAI. Envoyez-moi un message ou contactez-moi directement !","Verified industry certifications in Generative AI and Agile Scrum frameworks.":"Certifications professionnelles en IA générative et méthodologies Agile Scrum.","Available for immediate full-time hire, technical interviews, and engineering discussions.":"Disponible pour un poste à temps plein, des entretiens techniques et des échanges autour de l’ingénierie logicielle."};
-const tx = (value: string) => language === 'fr' ? (FR_TRANSLATIONS[value] || value) : value;
-
 export default function App() {
+  const darkMode = true;
   const [activeSection, setActiveSection] = useState('hero');
-  const [language, setLanguage] = useState<'en' | 'fr'>('en');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showResumeModal, setShowResumeModal] = useState(false);
@@ -349,13 +348,13 @@ export default function App() {
           {/* Desktop Nav Links */}
           <nav className="hidden md:flex items-center space-x-1 lg:space-x-2 text-xs font-medium">
             {[
-              { id: 'hero', label: tx('Home') },
-              { id: 'about', label: tx('About') },
-              { id: 'ai-spotlight', label: tx('AI Architecture') },
-              { id: 'skills', label: tx('Skills') },
-              { id: 'experience', label: tx('Experience') },
-              { id: 'projects', label: tx('Projects') },
-              { id: 'contact', label: tx('Contact') },
+              { id: 'hero', label: 'Home' },
+              { id: 'about', label: 'About' },
+              { id: 'ai-spotlight', label: 'AI Architecture' },
+              { id: 'skills', label: 'Skills' },
+              { id: 'experience', label: 'Experience' },
+              { id: 'projects', label: 'Projects' },
+              { id: 'contact', label: 'Contact' },
             ].map(link => (
               <a
                 key={link.id}
@@ -373,16 +372,12 @@ export default function App() {
 
           {/* Right Action Buttons */}
           <div className="flex items-center space-x-3">
-            <div className="flex items-center gap-1 p-1 rounded-lg border border-slate-800 bg-slate-900">
-              <button onClick={() => setLanguage('en')} className={`px-2 py-1 rounded text-[10px] font-semibold ${language === 'en' ? 'bg-violet-600 text-white' : 'text-slate-400 hover:text-white'}`}>EN</button>
-              <button onClick={() => setLanguage('fr')} className={`px-2 py-1 rounded text-[10px] font-semibold ${language === 'fr' ? 'bg-violet-600 text-white' : 'text-slate-400 hover:text-white'}`}>FR</button>
-            </div>
             <button
               onClick={() => setShowResumeModal(true)}
               className="hidden sm:inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-medium bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 text-white shadow-md shadow-violet-500/20 transition-all hover:scale-[1.02]"
             >
               <FileText className="w-3.5 h-3.5" />
-              <span>{tx('Resume')}</span>
+              <span>Resume</span>
             </button>
 
             {/* Mobile Hamburger Toggle */}
@@ -399,13 +394,13 @@ export default function App() {
         {isMobileMenuOpen && (
           <div className="md:hidden border-b px-4 pt-2 pb-4 space-y-1 bg-slate-950 border-slate-800">
             {[
-              { id: 'hero', label: tx('Home') },
-              { id: 'about', label: tx('About') },
-              { id: 'ai-spotlight', label: tx('AI Architecture') },
-              { id: 'skills', label: tx('Skills') },
-              { id: 'experience', label: tx('Experience') },
-              { id: 'projects', label: tx('Projects') },
-              { id: 'contact', label: tx('Contact') },
+              { id: 'hero', label: 'Home' },
+              { id: 'about', label: 'About' },
+              { id: 'ai-spotlight', label: 'AI Architecture' },
+              { id: 'skills', label: 'Skills' },
+              { id: 'experience', label: 'Experience' },
+              { id: 'projects', label: 'Projects' },
+              { id: 'contact', label: 'Contact' },
             ].map(link => (
               <a
                 key={link.id}
@@ -425,7 +420,7 @@ export default function App() {
               className="w-full mt-2 flex items-center justify-center gap-2 py-2 px-4 rounded-lg bg-violet-600 text-white font-medium text-sm"
             >
               <FileText className="w-4 h-4" />
-              <span>{tx('View Resume')}</span>
+              <span>View Resume</span>
             </button>
           </div>
         )}
@@ -497,7 +492,7 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:text-cyan-400 hover:border-cyan-500/40 transition-colors"
-                  aria-label="{tx('GitHub Profile')}"
+                  aria-label="GitHub Profile"
                 >
                   <Github className="w-5 h-5" />
                 </a>
@@ -506,7 +501,7 @@ export default function App() {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="p-2.5 rounded-lg border border-slate-800 bg-slate-900/50 hover:text-violet-400 hover:border-violet-500/40 transition-colors"
-                  aria-label="{tx('LinkedIn Profile')}"
+                  aria-label="LinkedIn Profile"
                 >
                   <Linkedin className="w-5 h-5" />
                 </a>
@@ -621,7 +616,7 @@ export default function App() {
 
                   <div className="space-y-3">
                     <h4 className="text-sm font-semibold text-slate-200">
-                      {tx(PORTFOLIO_DATA.personal.education.degree)}
+                      {PORTFOLIO_DATA.personal.education.degree}
                     </h4>
                     <p className="text-xs text-violet-400 font-medium">
                       {PORTFOLIO_DATA.personal.education.institution}
@@ -630,7 +625,7 @@ export default function App() {
                       {PORTFOLIO_DATA.personal.education.university}
                     </p>
                     <span className="inline-block px-2.5 py-1 rounded-md text-[11px] font-semibold bg-emerald-500/10 text-emerald-400 border border-emerald-500/20">
-                      {tx(PORTFOLIO_DATA.personal.education.status)}
+                      {PORTFOLIO_DATA.personal.education.status}
                     </span>
                   </div>
                 </div>
@@ -925,18 +920,18 @@ export default function App() {
                   <div className="p-6 rounded-2xl border bg-slate-950/80 border-slate-800 hover:border-slate-700 transition-all">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                       <div>
-                        <h3 className="text-lg font-bold text-slate-100">{tx(exp.role)}</h3>
+                        <h3 className="text-lg font-bold text-slate-100">{exp.role}</h3>
                         <p className="text-xs font-semibold text-violet-400">{exp.company}</p>
                       </div>
                       <div className="text-left sm:text-right">
                         <span className="inline-block px-2.5 py-1 rounded-md text-[11px] font-mono bg-slate-900 border border-slate-800 text-slate-300">
                           {exp.period}
                         </span>
-                        <p className="text-[11px] text-slate-400 mt-0.5">{tx(exp.type)} • {tx(exp.location)}</p>
+                        <p className="text-[11px] text-slate-400 mt-0.5">{exp.type} • {exp.location}</p>
                       </div>
                     </div>
 
-                    <p className="text-xs text-slate-300 mb-4 leading-relaxed">{tx(exp.summary)}</p>
+                    <p className="text-xs text-slate-300 mb-4 leading-relaxed">{exp.summary}</p>
 
                     <ul className="space-y-2 mb-4 text-xs text-slate-400">
                       {exp.highlights.map((h, hIdx) => (
@@ -1004,12 +999,12 @@ export default function App() {
                       <span className="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-violet-500/20 text-violet-300 border border-violet-500/30">
                         {project.highlightBadge}
                       </span>
-                      <span className="text-[11px] font-mono text-slate-400">{tx(project.category)}</span>
+                      <span className="text-[11px] font-mono text-slate-400">{project.category}</span>
                     </div>
 
                     <div className="z-10 space-y-1">
-                      <h3 className="text-lg font-bold text-slate-100">{tx(project.title)}</h3>
-                      <p className="text-xs text-slate-400 line-clamp-1">{tx(project.tagline)}</p>
+                      <h3 className="text-lg font-bold text-slate-100">{project.title}</h3>
+                      <p className="text-xs text-slate-400 line-clamp-1">{project.tagline}</p>
                     </div>
 
                     {/* Background Subtle Gradient Glow */}
@@ -1019,7 +1014,7 @@ export default function App() {
                   {/* Card Body */}
                   <div className="p-5 flex-1 flex flex-col justify-between space-y-4">
                     <p className="text-xs text-slate-300 leading-relaxed font-light">
-                      {tx(project.description)}
+                      {project.description}
                     </p>
 
                     <div className="space-y-3">
@@ -1036,7 +1031,7 @@ export default function App() {
                           onClick={() => setSelectedProject(project)}
                           className="text-xs font-semibold text-cyan-400 hover:text-cyan-300 flex items-center gap-1"
                         >
-                          <span>{tx('View Details')}</span>
+                          <span>View Details</span>
                           <ChevronRight className="w-3.5 h-3.5" />
                         </button>
 
@@ -1062,9 +1057,9 @@ export default function App() {
         <section id="certifications" className="py-20 px-4">
           <div className="max-w-5xl mx-auto space-y-10">
             <div className="text-center space-y-3">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-violet-400">{tx('Credentials')}</h2>
+              <h2 className="text-xs font-bold uppercase tracking-widest text-violet-400">Credentials</h2>
               <p className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-                {tx('Certifications & Accolades')}
+                Certifications &amp; Accolades
               </p>
               <p className="text-sm text-slate-400 max-w-2xl mx-auto">
                 Verified industry certifications in Generative AI and Agile Scrum frameworks.
@@ -1082,12 +1077,12 @@ export default function App() {
                       <Award className="w-6 h-6" />
                     </div>
                     <span className="text-xs font-mono px-2.5 py-1 rounded bg-slate-900 text-slate-300 border border-slate-800">
-                      {tx(cert.badge)}
+                      {cert.badge}
                     </span>
                   </div>
 
-                  <h3 className="font-bold text-base text-slate-100 mb-1">{tx(cert.title)}</h3>
-                  <p className="text-xs text-violet-400 font-medium mb-3">{tx(cert.issuer)} • {cert.date}</p>
+                  <h3 className="font-bold text-base text-slate-100 mb-1">{cert.title}</h3>
+                  <p className="text-xs text-violet-400 font-medium mb-3">{cert.issuer} • {cert.date}</p>
 
                   <div className="flex flex-wrap gap-1.5 pt-2 border-t border-slate-800/60">
                     {cert.skills.map((s, i) => (
@@ -1106,9 +1101,9 @@ export default function App() {
         <section id="contact" className="py-20 px-4 bg-slate-900/50">
           <div className="max-w-5xl mx-auto space-y-12">
             <div className="text-center space-y-3">
-              <h2 className="text-xs font-bold uppercase tracking-widest text-violet-400">{tx('Get In Touch')}</h2>
+              <h2 className="text-xs font-bold uppercase tracking-widest text-violet-400">Get In Touch</h2>
               <p className="text-3xl font-extrabold tracking-tight sm:text-4xl">
-                {tx("Let's Discuss Opportunities")}
+                Let's Discuss Opportunities
               </p>
               <p className="text-sm text-slate-400 max-w-2xl mx-auto">
                 Currently open for Junior Software Engineer, Full-Stack Developer, or AI/GenAI roles. Send me a message or connect directly!
@@ -1119,7 +1114,7 @@ export default function App() {
               {/* Contact Information & Channels */}
               <div className="lg:col-span-5 space-y-6">
                 <div className="p-6 rounded-2xl border bg-slate-950 border-slate-800 space-y-6">
-                  <h3 className="font-bold text-base text-slate-100">{tx('Contact Details')}</h3>
+                  <h3 className="font-bold text-base text-slate-100">Contact Details</h3>
 
                   <div className="space-y-4 text-xs">
                     <a
@@ -1130,7 +1125,7 @@ export default function App() {
                         <Mail className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-slate-400">{tx('Email Address')}</div>
+                        <div className="text-slate-400">Email Address</div>
                         <div className="font-medium text-slate-200">{PORTFOLIO_DATA.personal.email}</div>
                       </div>
                     </a>
@@ -1145,7 +1140,7 @@ export default function App() {
                         <Linkedin className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-slate-400">{tx('LinkedIn Profile')}</div>
+                        <div className="text-slate-400">LinkedIn Profile</div>
                         <div className="font-medium text-slate-200">linkedin.com/in/saharkharrat</div>
                       </div>
                     </a>
@@ -1160,7 +1155,7 @@ export default function App() {
                         <Github className="w-4 h-4" />
                       </div>
                       <div>
-                        <div className="text-slate-400">{tx('GitHub Profile')}</div>
+                        <div className="text-slate-400">GitHub Profile</div>
                         <div className="font-medium text-slate-200">github.com/saharkharrat</div>
                       </div>
                     </a>
@@ -1170,7 +1165,7 @@ export default function App() {
                 <div className="p-6 rounded-2xl border bg-slate-950 border-slate-800">
                   <div className="flex items-center gap-2 text-emerald-400 font-semibold text-xs mb-2">
                     <ShieldCheck className="w-4 h-4" />
-                    <span>{tx('Recruiter Friendly Guarantee')}</span>
+                    <span>Recruiter Friendly Guarantee</span>
                   </div>
                   <p className="text-xs text-slate-400 leading-relaxed">
                     Available for immediate full-time hire, technical interviews, and engineering discussions.
@@ -1187,11 +1182,11 @@ export default function App() {
                   }}
                   className="p-6 sm:p-8 rounded-2xl border bg-slate-950 border-slate-800 space-y-4"
                 >
-                  <h3 className="font-bold text-base text-slate-100 mb-2">{tx('Send Message')}</h3>
+                  <h3 className="font-bold text-base text-slate-100 mb-2">Send Message</h3>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-1">
-                      <label className="text-xs font-medium text-slate-400">{tx('Your Name')}</label>
+                      <label className="text-xs font-medium text-slate-400">Your Name</label>
                       <input
                         type="text"
                         required
@@ -1200,7 +1195,7 @@ export default function App() {
                       />
                     </div>
                     <div className="space-y-1">
-                      <label className="text-xs font-medium text-slate-400">{tx('Email Address')}</label>
+                      <label className="text-xs font-medium text-slate-400">Email Address</label>
                       <input
                         type="email"
                         required
@@ -1235,7 +1230,7 @@ export default function App() {
                     className="w-full py-3 rounded-xl bg-gradient-to-r from-violet-600 to-cyan-600 hover:from-violet-500 hover:to-cyan-500 text-white font-semibold text-xs shadow-md shadow-violet-600/20 transition-all flex items-center justify-center gap-2"
                   >
                     <Send className="w-4 h-4" />
-                    <span>{tx('Send Inquiry')}</span>
+                    <span>Send Inquiry</span>
                   </button>
                 </form>
               </div>
@@ -1326,7 +1321,7 @@ export default function App() {
                 className="px-4 py-2 rounded-xl text-xs font-medium bg-violet-600 text-white hover:bg-violet-500 flex items-center gap-1.5"
               >
                 <Github className="w-4 h-4" />
-                <span>{tx('GitHub Repo')}</span>
+                <span>GitHub Repo</span>
               </a>
             </div>
           </div>
@@ -1339,7 +1334,7 @@ export default function App() {
           <div className="max-w-2xl w-full rounded-2xl border p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto bg-slate-950 border-slate-800 text-slate-100">
             <div className="flex items-center justify-between border-b pb-4 border-slate-800">
               <div>
-                <h3 className="text-xl font-bold">{tx('Resume Preview')}</h3>
+                <h3 className="text-xl font-bold">Resume Preview</h3>
                 <p className="text-xs text-slate-400">Sahar Kharrat — Software Engineer</p>
               </div>
               <button
@@ -1364,7 +1359,7 @@ export default function App() {
               </div>
 
               <div>
-                <h4 className="font-bold text-slate-200 uppercase tracking-wider text-[10px] text-violet-400 mb-1">{tx('Key Experience')}</h4>
+                <h4 className="font-bold text-slate-200 uppercase tracking-wider text-[10px] text-violet-400 mb-1">Key Experience</h4>
                 <p className="font-semibold text-slate-200">TSI — End-of-Studies Software Engineer Intern</p>
                 <p className="text-slate-400">Developed HR ERP Module with .NET 8, CQRS, Clean Architecture &amp; Angular.</p>
                 <p className="font-semibold text-slate-200 mt-2">SoftSys Internationale — AI Developer Intern</p>
@@ -1372,7 +1367,7 @@ export default function App() {
               </div>
 
               <div>
-                <h4 className="font-bold text-slate-200 uppercase tracking-wider text-[10px] text-violet-400 mb-1">{tx('Core Tech Stack')}</h4>
+                <h4 className="font-bold text-slate-200 uppercase tracking-wider text-[10px] text-violet-400 mb-1">Core Tech Stack</h4>
                 <p className="text-slate-300">.NET 8, Angular, React, Spring Boot, Python, LlamaIndex, RAG, SQL Server, Redis, Docker, Clean Architecture</p>
               </div>
             </div>
@@ -1392,7 +1387,7 @@ export default function App() {
                     className="flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-medium bg-gradient-to-r from-violet-600 to-cyan-600 text-white hover:opacity-90 flex items-center justify-center gap-2 cursor-pointer"
                   >
                     <Download className="w-4 h-4" />
-                    <span>{tx('Download PDF')}</span>
+                    <span>Download PDF</span>
                   </a>
               </div>
             </div>
