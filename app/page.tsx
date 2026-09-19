@@ -51,7 +51,7 @@ const PORTFOLIO_DATA = {
     linkedin: "https://www.linkedin.com/in/sahar-kharrat-/",
     education: {
       degree: "National Engineering Degree in Software Engineering",
-      institution: "ISIMS – Institut Supérieur d’Informatique et de Multimédia de Sfax",
+      institution: "ISIMS – Institut Supérieur d'Informatique et de Multimédia de Sfax",
       university: "Université de Sfax",
       period: "2021 – 2024",
       status: "Graduated with High Honors"
@@ -81,7 +81,7 @@ const PORTFOLIO_DATA = {
   ],
   experience: [
     {
-      company: "TSI – Tunisie Systèmes d’Information",
+      company: "TSI – Tunisie Systèmes d'Information",
       role: "Software Engineering Intern / Final-Year Project",
       type: "End-of-Studies Internship",
       period: "Feb 2026 – Jul 2026",
@@ -197,7 +197,7 @@ const PORTFOLIO_DATA = {
 };
 
 export default function App() {
-  const [darkMode, setDarkMode] = useState(true);
+  const darkMode = true;
   const [activeSection, setActiveSection] = useState('hero');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [showScrollTop, setShowScrollTop] = useState(false);
@@ -244,11 +244,6 @@ export default function App() {
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
-
-  // Theme Toggler
-  const toggleTheme = () => {
-    setDarkMode(!darkMode);
-  };
 
   // RAG Bot Interaction
   const handleRagSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -335,10 +330,10 @@ export default function App() {
   const projectCategories = ['All', 'Full-Stack', 'AI & GenAI', 'Mobile', 'Analytics'];
 
   return (
-    <div className={`min-h-screen font-sans transition-colors duration-300 ${darkMode ? 'bg-slate-950 text-slate-100' : 'bg-slate-50 text-slate-800'}`}>
+    <div className="min-h-screen font-sans bg-slate-950 text-slate-100">
       
-      {}
-      <header className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b transition-colors duration-300 ${darkMode ? 'bg-slate-950/80 border-slate-800' : 'bg-white/80 border-slate-200'}`}>
+      {/* Header */}
+      <header className="fixed top-0 left-0 right-0 z-50 backdrop-blur-md border-b bg-slate-950/80 border-slate-800">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           {/* Logo */}
           <a href="#hero" className="flex items-center gap-2 text-lg font-bold tracking-tight">
@@ -366,12 +361,8 @@ export default function App() {
                 href={`#${link.id}`}
                 className={`px-3 py-2 rounded-lg transition-all ${
                   activeSection === link.id
-                    ? darkMode 
-                      ? 'bg-slate-800/80 text-cyan-400 font-semibold shadow-inner' 
-                      : 'bg-slate-100 text-violet-600 font-semibold'
-                    : darkMode 
-                      ? 'text-slate-400 hover:text-slate-200 hover:bg-slate-900' 
-                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100'
+                    ? 'bg-slate-800/80 text-cyan-400 font-semibold shadow-inner'
+                    : 'text-slate-400 hover:text-slate-200 hover:bg-slate-900'
                 }`}
               >
                 {link.label}
@@ -389,18 +380,6 @@ export default function App() {
               <span>Resume</span>
             </button>
 
-            <button
-              onClick={toggleTheme}
-              aria-label="Toggle theme"
-              className={`p-2 rounded-lg border transition-colors ${
-                darkMode 
-                  ? 'bg-slate-900 border-slate-800 text-yellow-400 hover:bg-slate-800' 
-                  : 'bg-slate-100 border-slate-200 text-slate-700 hover:bg-slate-200'
-              }`}
-            >
-              {darkMode ? <Sun className="w-4 h-4" /> : <Moon className="w-4 h-4" />}
-            </button>
-
             {/* Mobile Hamburger Toggle */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
@@ -413,7 +392,7 @@ export default function App() {
 
         {/* Mobile Navigation Drawer */}
         {isMobileMenuOpen && (
-          <div className={`md:hidden border-b px-4 pt-2 pb-4 space-y-1 ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-white border-slate-200'}`}>
+          <div className="md:hidden border-b px-4 pt-2 pb-4 space-y-1 bg-slate-950 border-slate-800">
             {[
               { id: 'hero', label: 'Home' },
               { id: 'about', label: 'About' },
@@ -430,7 +409,7 @@ export default function App() {
                 className={`block px-3 py-2 rounded-lg text-sm font-medium ${
                   activeSection === link.id
                     ? 'bg-violet-600 text-white'
-                    : darkMode ? 'text-slate-300 hover:bg-slate-900' : 'text-slate-700 hover:bg-slate-100'
+                    : 'text-slate-300 hover:bg-slate-900'
                 }`}
               >
                 {link.label}
@@ -448,7 +427,7 @@ export default function App() {
       </header>
 
       <main className="pt-16">
-        {}
+        {/* Hero Section */}
         <section id="hero" className="relative min-h-[90vh] flex items-center justify-center py-20 px-4 overflow-hidden">
           {/* Ambient Background Blur Elements */}
           <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-violet-600/20 rounded-full blur-3xl pointer-events-none" />
@@ -456,7 +435,7 @@ export default function App() {
           <div className="absolute bottom-10 left-10 w-80 h-80 bg-indigo-600/15 rounded-full blur-3xl pointer-events-none" />
 
           {/* Grid lines background overlay */}
-          <div className={`absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none ${darkMode ? 'opacity-30' : 'opacity-60'}`} />
+          <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:32px_32px] pointer-events-none opacity-30" />
 
           <div className="relative max-w-5xl mx-auto text-center space-y-8 z-10">
             {/* Status Badge */}
@@ -490,11 +469,7 @@ export default function App() {
 
               <a
                 href="#contact"
-                className={`px-6 py-3 rounded-xl border font-semibold text-sm transition-all hover:scale-105 flex items-center gap-2 ${
-                  darkMode 
-                    ? 'border-slate-800 bg-slate-900/80 text-slate-200 hover:bg-slate-800 hover:border-slate-700' 
-                    : 'border-slate-300 bg-white text-slate-700 hover:bg-slate-100'
-                }`}
+                className="px-6 py-3 rounded-xl border border-slate-800 bg-slate-900/80 text-slate-200 hover:bg-slate-800 hover:border-slate-700 font-semibold text-sm transition-all hover:scale-105 flex items-center gap-2"
               >
                 <Mail className="w-4 h-4 text-violet-400" />
                 <span>Contact Me</span>
@@ -502,11 +477,7 @@ export default function App() {
 
               <button
                 onClick={() => setShowResumeModal(true)}
-                className={`px-6 py-3 rounded-xl border font-semibold text-sm transition-all hover:scale-105 flex items-center gap-2 ${
-                  darkMode 
-                    ? 'border-violet-500/30 bg-violet-950/30 text-violet-300 hover:bg-violet-900/40' 
-                    : 'border-violet-200 bg-violet-50 text-violet-700 hover:bg-violet-100'
-                }`}
+                className="px-6 py-3 rounded-xl border border-violet-500/30 bg-violet-950/30 text-violet-300 hover:bg-violet-900/40 font-semibold text-sm transition-all hover:scale-105 flex items-center gap-2"
               >
                 <Download className="w-4 h-4" />
                 <span>Download CV</span>
@@ -557,8 +528,8 @@ export default function App() {
           </div>
         </section>
 
-        {}
-        <section id="about" className={`py-20 px-4 ${darkMode ? 'bg-slate-900/50' : 'bg-slate-100/70'}`}>
+        {/* About Section */}
+        <section id="about" className="py-20 px-4 bg-slate-900/50">
           <div className="max-w-6xl mx-auto space-y-12">
             <div className="text-center space-y-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-violet-400">About Me</h2>
@@ -573,14 +544,14 @@ export default function App() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               {/* Left Column: Bio & Core Focus */}
               <div className="lg:col-span-7 space-y-6">
-                <div className={`p-6 sm:p-8 rounded-2xl border backdrop-blur-sm ${darkMode ? 'bg-slate-950/80 border-slate-800' : 'bg-white border-slate-200 shadow-sm'}`}>
+                <div className="p-6 sm:p-8 rounded-2xl border bg-slate-950/80 border-slate-800">
                   <h3 className="text-xl font-bold mb-4 flex items-center gap-2">
                     <User className="w-5 h-5 text-cyan-400" />
                     <span>Professional Background</span>
                   </h3>
                   <div className="space-y-4 text-sm text-slate-300 leading-relaxed font-light">
                     <p>
-                      I am a recently graduated Software Engineer from <strong className="text-slate-100 font-semibold">ISIMS (Institut Supérieur d’Informatique et de Multimédia de Sfax)</strong>, Université de Sfax. My passion lies at the intersection of robust backend engineering, reactive frontends, and practical Generative AI applications.
+                      I am a recently graduated Software Engineer from <strong className="text-slate-100 font-semibold">ISIMS (Institut Supérieur d'Informatique et de Multimédia de Sfax)</strong>, Université de Sfax. My passion lies at the intersection of robust backend engineering, reactive frontends, and practical Generative AI applications.
                     </p>
                     <p>
                       During my engineering study and internships, I developed enterprise HR ERP modules using <strong className="text-violet-400 font-semibold">.NET 8, Clean Architecture, CQRS, and Angular</strong>, as well as AI-powered voice &amp; text document retrieval systems using <strong className="text-cyan-400 font-semibold">LlamaIndex, RAG, and FastAPI</strong>.
@@ -612,14 +583,14 @@ export default function App() {
 
                 {/* Engineering Philosophy Cards */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className={`p-5 rounded-xl border ${darkMode ? 'bg-slate-950/60 border-slate-800' : 'bg-white border-slate-200 shadow-sm'}`}>
+                  <div className="p-5 rounded-xl border bg-slate-950/60 border-slate-800">
                     <Layers className="w-6 h-6 text-violet-400 mb-2" />
                     <h4 className="font-semibold text-sm mb-1">Clean Architecture &amp; Scalability</h4>
                     <p className="text-xs text-slate-400 leading-relaxed">
                       Adhering to SOLID principles, CQRS patterns, and loose coupling for enterprise maintainability.
                     </p>
                   </div>
-                  <div className={`p-5 rounded-xl border ${darkMode ? 'bg-slate-950/60 border-slate-800' : 'bg-white border-slate-200 shadow-sm'}`}>
+                  <div className="p-5 rounded-xl border bg-slate-950/60 border-slate-800">
                     <Brain className="w-6 h-6 text-cyan-400 mb-2" />
                     <h4 className="font-semibold text-sm mb-1">Practical AI Integration</h4>
                     <p className="text-xs text-slate-400 leading-relaxed">
@@ -632,7 +603,7 @@ export default function App() {
               {/* Right Column: Education & Core Interests */}
               <div className="lg:col-span-5 space-y-6">
                 {/* Education Card */}
-                <div className={`p-6 rounded-2xl border ${darkMode ? 'bg-slate-950/80 border-slate-800' : 'bg-white border-slate-200 shadow-sm'}`}>
+                <div className="p-6 rounded-2xl border bg-slate-950/80 border-slate-800">
                   <div className="flex items-center gap-3 mb-4">
                     <div className="p-2.5 rounded-xl bg-violet-500/10 text-violet-400 border border-violet-500/20">
                       <BookOpen className="w-5 h-5" />
@@ -660,7 +631,7 @@ export default function App() {
                 </div>
 
                 {/* Core Focus Tags */}
-                <div className={`p-6 rounded-2xl border ${darkMode ? 'bg-slate-950/80 border-slate-800' : 'bg-white border-slate-200 shadow-sm'}`}>
+                <div className="p-6 rounded-2xl border bg-slate-950/80 border-slate-800">
                   <h3 className="font-bold text-sm mb-4 flex items-center gap-2">
                     <Sparkles className="w-4 h-4 text-cyan-400" />
                     <span>Primary Areas of Interest</span>
@@ -678,11 +649,7 @@ export default function App() {
                     ].map((interest, idx) => (
                       <span
                         key={idx}
-                        className={`px-3 py-1.5 rounded-lg text-xs font-medium border ${
-                          darkMode 
-                            ? 'bg-slate-900 border-slate-800 text-slate-300' 
-                            : 'bg-slate-100 border-slate-200 text-slate-700'
-                        }`}
+                        className="px-3 py-1.5 rounded-lg text-xs font-medium border bg-slate-900 border-slate-800 text-slate-300"
                       >
                         {interest}
                       </span>
@@ -694,7 +661,7 @@ export default function App() {
           </div>
         </section>
 
-        {}
+        {/* AI Spotlight Section */}
         <section id="ai-spotlight" className="py-20 px-4 relative overflow-hidden">
           <div className="max-w-6xl mx-auto space-y-12">
             <div className="text-center space-y-3">
@@ -711,7 +678,7 @@ export default function App() {
             </div>
 
             {/* Architecture Node Flow Representation */}
-            <div className={`p-6 rounded-2xl border ${darkMode ? 'bg-slate-900/60 border-slate-800' : 'bg-white border-slate-200 shadow-sm'}`}>
+            <div className="p-6 rounded-2xl border bg-slate-900/60 border-slate-800">
               <h3 className="text-xs font-bold uppercase tracking-wider text-slate-400 mb-6 text-center">
                 System Workflow: Enterprise Document Knowledge Retrieval
               </h3>
@@ -723,7 +690,7 @@ export default function App() {
                   { step: "03", title: "Context Retrieval", desc: "FastAPI semantic query search & similarity matching", icon: Search, color: "text-indigo-400" },
                   { step: "04", title: "Synthesized Output", desc: "Voice/Text output via Google Speech AI & LLM synthesis", icon: Bot, color: "text-emerald-400" },
                 ].map((node, i) => (
-                  <div key={i} className={`p-5 rounded-xl border relative transition-all hover:border-slate-700 ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-slate-50 border-slate-200'}`}>
+                  <div key={i} className="p-5 rounded-xl border bg-slate-950 border-slate-800 relative transition-all hover:border-slate-700">
                     <div className="flex items-center justify-between mb-3">
                       <span className="font-mono text-xs font-bold text-slate-400">{node.step}</span>
                       <node.icon className={`w-5 h-5 ${node.color}`} />
@@ -738,7 +705,7 @@ export default function App() {
             {/* Interactive Chatbot Demo Component */}
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
               <div className="lg:col-span-7 flex flex-col">
-                <div className={`flex-1 flex flex-col rounded-2xl border overflow-hidden ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-white border-slate-200 shadow-sm'}`}>
+                <div className="flex-1 flex flex-col rounded-2xl border overflow-hidden bg-slate-950 border-slate-800">
                   {/* Chatbot Header */}
                   <div className="p-4 bg-slate-900/90 border-b border-slate-800 flex items-center justify-between">
                     <div className="flex items-center gap-3">
@@ -769,9 +736,7 @@ export default function App() {
                           className={`max-w-[85%] p-3 rounded-xl ${
                             msg.sender === 'user'
                               ? 'bg-violet-600 text-white rounded-br-none'
-                              : darkMode
-                              ? 'bg-slate-900 border border-slate-800 text-slate-300 rounded-bl-none'
-                              : 'bg-slate-100 text-slate-800 rounded-bl-none'
+                              : 'bg-slate-900 border border-slate-800 text-slate-300 rounded-bl-none'
                           }`}
                         >
                           {msg.text}
@@ -780,7 +745,7 @@ export default function App() {
                     ))}
                     {isRagThinking && (
                       <div className="flex justify-start">
-                        <div className={`p-3 rounded-xl text-slate-400 flex items-center gap-2 text-xs ${darkMode ? 'bg-slate-900' : 'bg-slate-100'}`}>
+                        <div className="p-3 rounded-xl text-slate-400 flex items-center gap-2 text-xs bg-slate-900">
                           <Sparkles className="w-3.5 h-3.5 animate-spin text-cyan-400" />
                           <span>Searching vector store...</span>
                         </div>
@@ -827,7 +792,7 @@ export default function App() {
 
               {/* Terminal Simulator */}
               <div className="lg:col-span-5 flex flex-col">
-                <div className={`flex-1 flex flex-col rounded-2xl border font-mono text-xs overflow-hidden ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-slate-900 border-slate-800 text-slate-200'}`}>
+                <div className="flex-1 flex flex-col rounded-2xl border font-mono text-xs overflow-hidden bg-slate-950 border-slate-800 text-slate-200">
                   <div className="p-3 bg-slate-900 border-b border-slate-800 flex items-center justify-between">
                     <div className="flex items-center gap-2">
                       <div className="w-3 h-3 rounded-full bg-red-500/80" />
@@ -873,8 +838,8 @@ export default function App() {
           </div>
         </section>
 
-        {}
-        <section id="skills" className={`py-20 px-4 ${darkMode ? 'bg-slate-900/50' : 'bg-slate-100/70'}`}>
+        {/* Skills Section */}
+        <section id="skills" className="py-20 px-4 bg-slate-900/50">
           <div className="max-w-6xl mx-auto space-y-10">
             <div className="text-center space-y-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-violet-400">Technical Competencies</h2>
@@ -895,9 +860,7 @@ export default function App() {
                   className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                     activeSkillCategory === cat
                       ? 'bg-violet-600 text-white shadow-md shadow-violet-600/20'
-                      : darkMode
-                      ? 'bg-slate-900 text-slate-400 border border-slate-800 hover:bg-slate-800 hover:text-slate-200'
-                      : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+                      : 'bg-slate-900 text-slate-400 border border-slate-800 hover:bg-slate-800 hover:text-slate-200'
                   }`}
                 >
                   {cat}
@@ -910,9 +873,7 @@ export default function App() {
               {filteredSkills.map((skill, idx) => (
                 <div
                   key={idx}
-                  className={`p-4 rounded-xl border transition-all duration-200 hover:scale-[1.02] flex items-center justify-between ${
-                    darkMode ? 'bg-slate-950 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'
-                  }`}
+                  className="p-4 rounded-xl border bg-slate-950 border-slate-800 hover:border-slate-700 transition-all duration-200 hover:scale-[1.02] flex items-center justify-between"
                 >
                   <div className="space-y-1">
                     <div className="font-semibold text-sm text-slate-200">{skill.name}</div>
@@ -933,7 +894,7 @@ export default function App() {
           </div>
         </section>
 
-        {}
+        {/* Experience Section */}
         <section id="experience" className="py-20 px-4">
           <div className="max-w-5xl mx-auto space-y-12">
             <div className="text-center space-y-3">
@@ -956,7 +917,7 @@ export default function App() {
                   </div>
 
                   {/* Card Content */}
-                  <div className={`p-6 rounded-2xl border transition-all ${darkMode ? 'bg-slate-950/80 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'}`}>
+                  <div className="p-6 rounded-2xl border bg-slate-950/80 border-slate-800 hover:border-slate-700 transition-all">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-3">
                       <div>
                         <h3 className="text-lg font-bold text-slate-100">{exp.role}</h3>
@@ -995,8 +956,8 @@ export default function App() {
           </div>
         </section>
 
-        {}
-        <section id="projects" className={`py-20 px-4 ${darkMode ? 'bg-slate-900/50' : 'bg-slate-100/70'}`}>
+        {/* Projects Section */}
+        <section id="projects" className="py-20 px-4 bg-slate-900/50">
           <div className="max-w-6xl mx-auto space-y-12">
             <div className="text-center space-y-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-violet-400">Portfolio Work</h2>
@@ -1017,9 +978,7 @@ export default function App() {
                   className={`px-4 py-2 rounded-xl text-xs font-semibold transition-all ${
                     activeProjectFilter === cat
                       ? 'bg-gradient-to-r from-violet-600 to-cyan-600 text-white shadow-md'
-                      : darkMode
-                      ? 'bg-slate-950 text-slate-400 border border-slate-800 hover:bg-slate-900 hover:text-slate-200'
-                      : 'bg-white text-slate-600 border border-slate-200 hover:bg-slate-50'
+                      : 'bg-slate-950 text-slate-400 border border-slate-800 hover:bg-slate-900 hover:text-slate-200'
                   }`}
                 >
                   {cat}
@@ -1032,9 +991,7 @@ export default function App() {
               {filteredProjects.map((project) => (
                 <div
                   key={project.id}
-                  className={`flex flex-col rounded-2xl border transition-all duration-300 hover:-translate-y-1 overflow-hidden ${
-                    darkMode ? 'bg-slate-950 border-slate-800 hover:border-slate-700' : 'bg-white border-slate-200 shadow-sm'
-                  }`}
+                  className="flex flex-col rounded-2xl border bg-slate-950 border-slate-800 hover:border-slate-700 transition-all duration-300 hover:-translate-y-1 overflow-hidden"
                 >
                   {/* Card Visual Header Placeholder */}
                   <div className="h-44 bg-gradient-to-br from-slate-900 via-slate-950 to-violet-950/40 p-5 flex flex-col justify-between relative border-b border-slate-800/80">
@@ -1096,7 +1053,7 @@ export default function App() {
           </div>
         </section>
 
-        {}
+        {/* Certifications Section */}
         <section id="certifications" className="py-20 px-4">
           <div className="max-w-5xl mx-auto space-y-10">
             <div className="text-center space-y-3">
@@ -1113,9 +1070,7 @@ export default function App() {
               {PORTFOLIO_DATA.certifications.map((cert, idx) => (
                 <div
                   key={idx}
-                  className={`p-6 rounded-2xl border transition-all hover:scale-[1.01] ${
-                    darkMode ? 'bg-slate-950 border-slate-800' : 'bg-white border-slate-200 shadow-sm'
-                  }`}
+                  className="p-6 rounded-2xl border bg-slate-950 border-slate-800 transition-all hover:scale-[1.01]"
                 >
                   <div className="flex items-start justify-between mb-4">
                     <div className="p-3 rounded-xl bg-violet-500/10 border border-violet-500/20 text-violet-400">
@@ -1142,8 +1097,8 @@ export default function App() {
           </div>
         </section>
 
-        {}
-        <section id="contact" className={`py-20 px-4 ${darkMode ? 'bg-slate-900/50' : 'bg-slate-100/70'}`}>
+        {/* Contact Section */}
+        <section id="contact" className="py-20 px-4 bg-slate-900/50">
           <div className="max-w-5xl mx-auto space-y-12">
             <div className="text-center space-y-3">
               <h2 className="text-xs font-bold uppercase tracking-widest text-violet-400">Get In Touch</h2>
@@ -1158,7 +1113,7 @@ export default function App() {
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
               {/* Contact Information & Channels */}
               <div className="lg:col-span-5 space-y-6">
-                <div className={`p-6 rounded-2xl border space-y-6 ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-white border-slate-200 shadow-sm'}`}>
+                <div className="p-6 rounded-2xl border bg-slate-950 border-slate-800 space-y-6">
                   <h3 className="font-bold text-base text-slate-100">Contact Details</h3>
 
                   <div className="space-y-4 text-xs">
@@ -1207,7 +1162,7 @@ export default function App() {
                   </div>
                 </div>
 
-                <div className={`p-6 rounded-2xl border ${darkMode ? 'bg-slate-950 border-slate-800' : 'bg-white border-slate-200 shadow-sm'}`}>
+                <div className="p-6 rounded-2xl border bg-slate-950 border-slate-800">
                   <div className="flex items-center gap-2 text-emerald-400 font-semibold text-xs mb-2">
                     <ShieldCheck className="w-4 h-4" />
                     <span>Recruiter Friendly Guarantee</span>
@@ -1225,9 +1180,7 @@ export default function App() {
                     e.preventDefault();
                     alert("Thank you for reaching out! Sahar will get back to you shortly.");
                   }}
-                  className={`p-6 sm:p-8 rounded-2xl border space-y-4 ${
-                    darkMode ? 'bg-slate-950 border-slate-800' : 'bg-white border-slate-200 shadow-sm'
-                  }`}
+                  className="p-6 sm:p-8 rounded-2xl border bg-slate-950 border-slate-800 space-y-4"
                 >
                   <h3 className="font-bold text-base text-slate-100 mb-2">Send Message</h3>
 
@@ -1238,9 +1191,7 @@ export default function App() {
                         type="text"
                         required
                         placeholder="Jane Doe"
-                        className={`w-full px-3.5 py-2 rounded-xl text-xs border focus:outline-none focus:border-violet-500 ${
-                          darkMode ? 'bg-slate-900 border-slate-800 text-slate-200' : 'bg-slate-50 border-slate-200 text-slate-800'
-                        }`}
+                        className="w-full px-3.5 py-2 rounded-xl text-xs border bg-slate-900 border-slate-800 text-slate-200 focus:outline-none focus:border-violet-500"
                       />
                     </div>
                     <div className="space-y-1">
@@ -1249,9 +1200,7 @@ export default function App() {
                         type="email"
                         required
                         placeholder="jane@company.com"
-                        className={`w-full px-3.5 py-2 rounded-xl text-xs border focus:outline-none focus:border-violet-500 ${
-                          darkMode ? 'bg-slate-900 border-slate-800 text-slate-200' : 'bg-slate-50 border-slate-200 text-slate-800'
-                        }`}
+                        className="w-full px-3.5 py-2 rounded-xl text-xs border bg-slate-900 border-slate-800 text-slate-200 focus:outline-none focus:border-violet-500"
                       />
                     </div>
                   </div>
@@ -1262,9 +1211,7 @@ export default function App() {
                       type="text"
                       required
                       placeholder="Software Engineer Opportunity / Project Inquiry"
-                      className={`w-full px-3.5 py-2 rounded-xl text-xs border focus:outline-none focus:border-violet-500 ${
-                        darkMode ? 'bg-slate-900 border-slate-800 text-slate-200' : 'bg-slate-50 border-slate-200 text-slate-800'
-                      }`}
+                      className="w-full px-3.5 py-2 rounded-xl text-xs border bg-slate-900 border-slate-800 text-slate-200 focus:outline-none focus:border-violet-500"
                     />
                   </div>
 
@@ -1274,9 +1221,7 @@ export default function App() {
                       rows={4}
                       required
                       placeholder="Hi Sahar, we reviewed your portfolio and would love to discuss an open software developer role..."
-                      className={`w-full px-3.5 py-2 rounded-xl text-xs border focus:outline-none focus:border-violet-500 ${
-                        darkMode ? 'bg-slate-900 border-slate-800 text-slate-200' : 'bg-slate-50 border-slate-200 text-slate-800'
-                      }`}
+                      className="w-full px-3.5 py-2 rounded-xl text-xs border bg-slate-900 border-slate-800 text-slate-200 focus:outline-none focus:border-violet-500"
                     />
                   </div>
 
@@ -1294,8 +1239,8 @@ export default function App() {
         </section>
       </main>
 
-      {}
-      <footer className={`py-8 px-4 border-t ${darkMode ? 'bg-slate-950 border-slate-900 text-slate-400' : 'bg-slate-100 border-slate-200 text-slate-600'}`}>
+      {/* Footer */}
+      <footer className="py-8 px-4 border-t bg-slate-950 border-slate-900 text-slate-400">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4 text-xs">
           <div>
             © {new Date().getFullYear()} Sahar Kharrat. All rights reserved.
@@ -1320,10 +1265,10 @@ export default function App() {
         </button>
       )}
 
-      {}
+      {/* Project Detail Modal */}
       {selectedProject && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-          <div className={`max-w-xl w-full rounded-2xl border p-6 space-y-4 max-h-[90vh] overflow-y-auto ${darkMode ? 'bg-slate-950 border-slate-800 text-slate-100' : 'bg-white border-slate-200 text-slate-800'}`}>
+          <div className="max-w-xl w-full rounded-2xl border p-6 space-y-4 max-h-[90vh] overflow-y-auto bg-slate-950 border-slate-800 text-slate-100">
             <div className="flex items-center justify-between border-b pb-3 border-slate-800">
               <div>
                 <h3 className="text-lg font-bold">{selectedProject.title}</h3>
@@ -1383,10 +1328,10 @@ export default function App() {
         </div>
       )}
 
-      {}
+      {/* Resume Modal */}
       {showResumeModal && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/75 backdrop-blur-md">
-          <div className={`max-w-2xl w-full rounded-2xl border p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto ${darkMode ? 'bg-slate-950 border-slate-800 text-slate-100' : 'bg-white border-slate-200 text-slate-800'}`}>
+          <div className="max-w-2xl w-full rounded-2xl border p-6 sm:p-8 space-y-6 max-h-[90vh] overflow-y-auto bg-slate-950 border-slate-800 text-slate-100">
             <div className="flex items-center justify-between border-b pb-4 border-slate-800">
               <div>
                 <h3 className="text-xl font-bold">Resume Preview</h3>
@@ -1410,7 +1355,7 @@ export default function App() {
               <div>
                 <h4 className="font-bold text-slate-200 uppercase tracking-wider text-[10px] text-violet-400 mb-1">Education</h4>
                 <p className="font-semibold text-slate-200">National Engineering Diploma in Computer Science</p>
-                <p className="text-slate-400">ISIMS – Institut Supérieur d’Informatique et de Multimédia de Sfax (2021 – 2024)</p>
+                <p className="text-slate-400">ISIMS – Institut Supérieur d'Informatique et de Multimédia de Sfax (2021 – 2024)</p>
               </div>
 
               <div>
@@ -1436,13 +1381,14 @@ export default function App() {
                 >
                   Close
                 </button>
-                <button
-                  onClick={() => alert("Simulated Resume Download triggered! In production, this links to Sahar_Kharrat_Resume.pdf")}
-                  className="flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-medium bg-gradient-to-r from-violet-600 to-cyan-600 text-white hover:opacity-90 flex items-center justify-center gap-2"
-                >
-                  <Download className="w-4 h-4" />
-                  <span>Download PDF</span>
-                </button>
+                  <a
+                    href="/CV-Sahar-Kharrat.pdf"
+                    download="CV-Sahar-Kharrat.pdf"
+                    className="flex-1 sm:flex-none px-4 py-2 rounded-xl text-xs font-medium bg-gradient-to-r from-violet-600 to-cyan-600 text-white hover:opacity-90 flex items-center justify-center gap-2 cursor-pointer"
+                  >
+                    <Download className="w-4 h-4" />
+                    <span>Download PDF</span>
+                  </a>
               </div>
             </div>
           </div>
